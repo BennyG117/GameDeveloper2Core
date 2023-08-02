@@ -2,15 +2,9 @@ public class Enemy
 {
     //Fields --------------
     public string NameOfEnemy;
-    private int EnemyHealth;
-    public int _EnemyHealth
-    {
-        get
-        {
-            return EnemyHealth;
-        }
-    }
-    
+
+    public int EnemyHealth {get; set;}
+
     public List<Attack> EnemyAttackList;
 
 
@@ -26,13 +20,14 @@ public class Enemy
 
 
     //Method --------------
-    public void RandomAttack()
+    public Attack RandomAttack()
     {
         Random random = new Random();
         int randomAttackIndex = random.Next(0, EnemyAttackList.Count);
         Attack randomAttack = EnemyAttackList[randomAttackIndex];
 
-        Console.WriteLine($"{NameOfEnemy} attacked with {randomAttack.NameOfAttack} ");
+        return randomAttack;
+        // Console.WriteLine($"{NameOfEnemy} attacked with {randomAttack.NameOfAttack} ");
     }
 
     public void AddToAttackList(Attack newAttack)
@@ -41,10 +36,13 @@ public class Enemy
     }
 
 
-    public void PerformAttack(Enemy Target, Attack Bolt)
+    public void PerformAttack(Enemy Target, Attack banana)
     {
+        //updating enmemy's health after damage is taken
+        Target.EnemyHealth = Target.EnemyHealth - banana.DamageAmount;
+
         // Write some logic here to reduce the Targets health by your Attack's DamageAmount
-        Console.WriteLine($"{NameOfEnemy} attacks {Target.NameOfEnemy}, dealing {Bolt.DamageAmount} damage and reducing {Target.NameOfEnemy}'s health to {Target._EnemyHealth}!!");
+        Console.WriteLine($"{this.NameOfEnemy} attacks {Target.NameOfEnemy} with {banana.NameOfAttack}, dealing {banana.DamageAmount} damage and reducing {Target.NameOfEnemy}'s health to {Target.EnemyHealth}!!");
     }
 
 

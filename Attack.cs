@@ -2,7 +2,7 @@ public class Attack
 {
     //Fields --------------
     public string NameOfAttack;
-    public int DamageAmount;
+    public int DamageAmount {get; set;}
 
 
     //Constructors --------------

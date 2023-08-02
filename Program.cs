@@ -23,26 +23,23 @@ Enemy Elf = new Enemy("Llanowar Elf");
         Goblin.AddToAttackList(Shock);
 
 
-        Elf.RandomAttack();
-        Elf.RandomAttack();
-        Elf.RandomAttack();
-        Elf.RandomAttack();
+//         Elf.RandomAttack();
+//         Elf.RandomAttack();
+//         Elf.RandomAttack();
+//         Elf.RandomAttack();
 
-Console.WriteLine($"{Elf._EnemyHealth}");
-Console.WriteLine("===================");
+// Console.WriteLine($"{Elf.EnemyHealth}");
+// Console.WriteLine("===================");
         
         
-        Goblin.RandomAttack();
-        Goblin.RandomAttack();
-Console.WriteLine("===================");
+//         Goblin.RandomAttack();
+//         Goblin.RandomAttack();
+// Console.WriteLine("===================");
 
 //==================================================
-//Starting MeleeFighter Here
+//! Starting MeleeFighter Here
 //==================================================
 MeleeFighter meleeFighter = new MeleeFighter("Witcher");
-meleeFighter.AddToAttackList(new Attack("Punch", 20));
-meleeFighter.AddToAttackList(new Attack("Kick", 15));
-meleeFighter.AddToAttackList(new Attack("Tackle", 25));
-
 meleeFighter.Rage(Goblin);
-meleeFighter.MeleeFighterRandomAttack(Goblin);
+
+meleeFighter.PerformAttack(Goblin, meleeFighter.EnemyAttackList[2]);
